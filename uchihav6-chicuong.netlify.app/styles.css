@@ -1,0 +1,1194 @@
+/* ==========================================
+   BLUE NEON WHITE DESIGN SYSTEM VARIABLES
+   ========================================== */
+:root {
+  /* Bảng màu chủ đạo: Xanh Neon & Trắng */
+  --neon-blue: #00f0ff;
+  --neon-blue-glow: rgba(0, 240, 255, 0.4);
+  --neon-blue-soft: rgba(0, 240, 255, 0.15);
+  --pure-white: #ffffff;
+  --off-white: #f5f5f7;
+  --text-muted: #a1a1a6;
+  
+  /* Nền tối sâu để làm nổi bật hiệu ứng Neon phát sáng */
+  --bg-deep: #0a0f1d;
+  --bg-surface: #121829;
+  
+  /* Cấu trúc Glassmorphism cao cấp */
+  --glass-bg: rgba(18, 24, 41, 0.65);
+  --glass-border: rgba(0, 240, 255, 0.25);
+  --glass-border-active: rgba(0, 240, 255, 0.6);
+  
+  /* Bo góc và hiệu ứng chuyển động */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================
+   BASE STYLES & LAYOUT
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 50% 0%, var(--neon-blue-soft), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.03), transparent 40%);
+  color: var(--pure-white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.4;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 90px; /* Chừa không gian cho bottom nav */
+}
+
+/* Glassmorphism Card Base */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 8px 32px 0 var(--neon-blue-soft);
+}
+
+/* ==========================================
+   HEADER SECTION
+   ========================================== */
+.app-header {
+  margin: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(10, 15, 29, 0.8);
+}
+
+.brand-overline {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.brand-title {
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3), 0 0 4px var(--neon-blue);
+}
+
+/* ==========================================
+   MAIN CONTENT & STACK
+   ========================================== */
+.main-stack {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tựa đề các phân mục */
+.home-section-title {
+  color: var(--pure-white);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 4px;
+  border-left: 3px solid var(--neon-blue);
+  line-height: 1;
+}
+
+/* ==========================================
+   HOME TAB COMPONENT
+   ========================================== */
+.home-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+/* Contact Rows */
+.home-contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.home-contact-row:last-child {
+  border-bottom: none;
+}
+
+.home-contact-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.home-contact-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon Box Badge */
+.home-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-icon-box.is-bright {
+  background: var(--neon-blue-soft);
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue-soft);
+}
+
+.home-icon-box.is-soft {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--pure-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.home-icon-box.is-deep {
+  background: #000;
+  color: var(--pure-white);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.home-contact-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-contact-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--pure-white);
+}
+
+.home-contact-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Right alignment text links */
+.home-contact-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.home-contact-link.is-bright {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue-glow);
+}
+
+.home-contact-link.is-soft {
+  color: var(--pure-white);
+  opacity: 0.9;
+}
+
+.home-contact-link.is-rose {
+  color: var(--pure-white);
+  border-bottom: 1px dashed var(--neon-blue);
+}
+
+/* App Info Specification Rows */
+.home-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+}
+
+.home-info-row:last-child {
+  border-bottom: none;
+}
+
+.home-info-label {
+  color: var(--text-muted);
+}
+
+.home-info-value {
+  font-weight: 600;
+  color: var(--pure-white);
+}
+
+.home-info-value.is-soft {
+  color: var(--neon-blue) !important;
+}
+
+.home-info-value.is-warm {
+  color: var(--pure-white);
+  background: var(--neon-blue-soft);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--neon-blue);
+  font-size: 0.8rem;
+}
+
+/* Intro Core Dashboard Panel */
+.home-intro-card {
+  padding: 20px;
+}
+
+.home-intro-kicker {
+  color: var(--neon-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.home-intro-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 10px;
+  color: var(--pure-white);
+}
+
+.home-intro-copy, .home-intro-foot {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.home-intro-copy {
+  margin-bottom: 14px;
+}
+
+/* Chip Highlights */
+.home-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.home-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--pure-white);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Profile Admin Card */
+.profile-card {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.profile-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue-glow);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-body h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pure-white);
+}
+
+.profile-body p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.profile-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.profile-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--pure-white);
+  text-align: center;
+  padding: 10px 0;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.profile-btn:hover {
+  background: var(--neon-blue-soft);
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 8px var(--neon-blue-soft);
+}
+
+/* ==========================================
+   FUNCTION PREMIUM VIP COMPONENT (SWITCHES)
+   ========================================== */
+.section-card {
+  padding: 16px;
+}
+
+.section-eyebrow {
+  color: var(--neon-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.section-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.func-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* Functional Cards Inside Switches list */
+.func-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.func-card:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(0, 240, 255, 0.02);
+}
+
+/* SVG Vector Icon Wrap inside switches */
+.func-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pure-white);
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition);
+}
+
+.func-icon-wrap svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.func-info {
+  flex-grow: 1;
+  padding-right: 40px;
+}
+
+.func-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--pure-white);
+  letter-spacing: 0.5px;
+}
+
+.func-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.func-num {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.15);
+  font-family: monospace;
+}
+
+/* --- THE NEON TOGGLE SWITCH SYSTEM --- */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  transition: .3s;
+}
+
+.toggle-thumb {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--pure-white);
+  border-radius: 50%;
+  transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Active Switch States (Blue Neon Active Triggered) */
+.toggle input:checked + .toggle-track {
+  background-color: var(--neon-blue-soft);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue-glow);
+}
+
+.toggle input:checked + .toggle-track .toggle-thumb,
+.toggle input:checked ~ .toggle-thumb {
+  transform: translateX(22px);
+  background-color: var(--neon-blue);
+  box-shadow: 0 0 8px var(--pure-white);
+}
+
+/* Dynamic active state hook for card wrap */
+.func-card:has(input:checked) {
+  border-color: var(--glass-border-active);
+  background: rgba(0, 240, 255, 0.05);
+}
+.func-card:has(input:checked) .func-icon-wrap {
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+  background: var(--neon-blue-soft);
+  box-shadow: 0 0 8px var(--neon-blue-soft);
+}
+
+/* ==========================================
+   BOOSTER PANEL COMPONENT (SLIDERS & DIALS)
+   ========================================== */
+.booster-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tab Segment Pill for Games Selection */
+.booster-switch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 6px;
+  gap: 6px;
+}
+
+.booster-pill {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.booster-pill img {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+.booster-pill.is-active {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--pure-white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.booster-pill.is-active img {
+  filter: grayscale(0%);
+  opacity: 1;
+  border: 1px solid var(--neon-blue);
+}
+
+/* Sub Booster Panel View Configurations */
+.booster-panel {
+  display: none;
+  padding: 16px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booster-panel.is-active {
+  display: flex;
+}
+
+.booster-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.booster-game h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--pure-white);
+}
+
+.booster-game p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Neon Launch Trigger Circular/Rect Button */
+.booster-launch {
+  background: var(--pure-white);
+  color: var(--bg-deep);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+  transition: var(--transition);
+}
+
+.booster-launch:overflow, .booster-launch:active {
+  background: var(--neon-blue);
+  color: var(--bg-deep);
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+/* Tuning Tuning Grid Sliders rows */
+.booster-tuning {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.tune-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tune-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tune-copy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tune-badge {
+  font-size: 0.65rem;
+  font-family: monospace;
+  color: var(--neon-blue);
+  background: var(--neon-blue-soft);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.tune-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--pure-white);
+  letter-spacing: 0.3px;
+}
+
+.tune-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+}
+
+/* Custom Styled Input Range Slider Track & Thumb */
+.tune-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.tune-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--pure-white);
+  border: 2px solid var(--neon-blue);
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--neon-blue-glow);
+  transition: var(--transition);
+}
+
+.tune-slider::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+  background: var(--neon-blue);
+  box-shadow: 0 0 12px var(--neon-blue);
+}
+
+/* Radial Matrix Progress Gauges Panel Box */
+.booster-preview {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.preview-dial {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: conic-gradient(var(--neon-blue) calc(var(--dial) * 1%), rgba(255, 255, 255, 0.05) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.5);
+}
+
+.preview-core {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-score {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--pure-white);
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.preview-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.72rem;
+}
+
+.preview-item span {
+  color: var(--text-muted);
+}
+
+.preview-item strong {
+  align-self: flex-end;
+  margin-top: -16px;
+  color: var(--pure-white);
+}
+
+.preview-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preview-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pure-white), var(--neon-blue));
+  width: calc(var(--value) * 1%);
+}
+
+/* ==========================================
+   MONITORING TELEMETRY (LIVE TRACKS)
+   ========================================== */
+.monitor-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.monitor-badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.badge span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.badge b {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pure-white);
+}
+
+#mFps, #mCpu {
+  color: var(--neon-blue);
+  text-shadow: 0 0 6px var(--neon-blue-soft);
+}
+
+/* Canvas Oscilloscopes Cards Styles */
+.chart-card {
+  padding: 14px;
+}
+.chart-meta {
+  margin-bottom: 10px;
+}
+.chart-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--pure-white);
+}
+.chart-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.chart-sub span {
+  color: var(--neon-blue);
+  font-weight: bold;
+}
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Control Execution Buttons Module Grid */
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 14px;
+}
+
+.control-card .section-head {
+  padding: 14px 14px 0 14px;
+}
+
+.controls button {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--pure-white);
+  padding: 12px 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Special Button UnLock 120 FPS State */
+.controls button.toggleOn {
+  grid-column: span 2;
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  background: var(--neon-blue-soft);
+}
+
+/* Command Developer Terminal Console View */
+.console-card {
+  display: flex;
+  flex-direction: column;
+}
+.console-card .section-head {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.badge-grid {
+  display: flex;
+  gap: 6px;
+}
+.badge-grid .badge {
+  padding: 4px 8px;
+}
+.consoleView {
+  height: 160px;
+  background: #060913;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px;
+  font-family: monospace;
+  font-size: 0.72rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--off-white);
+}
+
+.consoleInput {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.consoleInput input {
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--pure-white);
+  font-size: 0.8rem;
+  outline: none;
+}
+.consoleInput input:focus {
+  border-color: var(--neon-blue);
+}
+
+.consoleInput button {
+  background: var(--neon-blue);
+  color: var(--bg-deep);
+  border: none;
+  font-weight: 800;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+/* ==========================================
+   CONFIGURATIONS SETUP SETTINGS COMPONENT
+   ========================================== */
+.setup-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.about-card {
+  padding: 16px;
+  text-align: center;
+}
+.about-version {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pure-white);
+}
+.about-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 6px 0 12px 0;
+}
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.about-tag {
+  font-size: 0.68rem;
+  background: var(--neon-blue-soft);
+  color: var(--neon-blue);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Config Selector Group Structural Rows */
+.settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.settings-group-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  gap: 12px;
+}
+.setting-row-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--neon-blue);
+  svg {
+    width: 100%; height: 100%; stroke: currentColor;
+  }
+}
+.setting-row-info {
+  flex-grow: 1;
+}
+.setting-row-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pure-white);
+}
+.setting-row-desc {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.setting-select {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--pure-white);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  outline: none;
+}
+.setting-select:focus {
+  border-color: var(--neon-blue);
+}
+
+/* ==========================================
+   MODAL DIALOG POPUP WINDOW SYSTEM
+   ========================================== */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(6, 9, 19, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-surface);
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 25px var(--neon-blue-glow);
+  width: 85%;
+  max-width: 320px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  z-index: 1000;
+  text-align: center;
+  flex-direction: column;
+  gap: 14px;
+}
+.modal-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
+  color: var(--neon-blue);
+  svg {
+    width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2;
+  }
+}
+.modal-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--pure-white);
+}
+.modal-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ==========================================
+   BOTTOM HARDWARE NAVIGATION TABS BAR
+   ========================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 16px; left: 16px; right: 16px;
+  height: 64px;
+  background: rgba(18, 24, 41, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  overflow: hidden;
+}
+
+.bottom-item {
+  background: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.bottom-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  transition: var(--transition);
+}
+
+.bottom-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Active Navigation Item Target Style Override (Neon White Highlighted) */
+.bottom-item.is-active {
+  color: var(--pure-white);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.bottom-item.is-active .bottom-icon svg {
+  color: var(--neon-blue);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 5px var(--neon-blue));
+}
+
+/* Dynamic structural selector to control view switches inside script elements */
+[hidden] {
+  display: none !important;
+}
